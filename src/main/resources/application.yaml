@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: Resume-Builder
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/resumebuilder?serverTimezone=UTC
+    username: root
+    password: Vibhinna@2026
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  mail:
+    host: smtp-relay.brevo.com
+    port: 587
+    username: ${BREVO_USERNAME}
+    password: ${BREVO_SMTP_KEY}
+    protocol: smtp
+    properties:
+      mail:
+        debug: true
+        smtp:
+          from: ${MAIL_FROM}
+          auth: true
+          starttls:
+            enable: true
+
+server:
+  port: 8080
+
+app:
+  base:
+    url: http://localhost:8080
+
+#Cloudinary Configuration
+
+cloudinary:
+  cloud-name: ${CLOUDINARY_CLOUD_NAME}
+  api-key: ${CLOUDINARY_API_KEY}
+  api-secret: ${CLOUDINARY_API_SECRET}
+
+#JWT Configuration
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 604800000
+
+#Razorpay Configuration
+
+razorpay:
+  key:
+    id: ${RAZOR_KEY_ID}
+    secret: ${RAZOR_KEY_SECRET}
+
